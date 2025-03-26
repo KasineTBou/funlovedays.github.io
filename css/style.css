@@ -1,0 +1,370 @@
+/* Общие стили */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f2f5; /* Пастельный розовый */
+    color: #555;
+    overflow: hidden; /* Скрываем полосы прокрутки из-за сердец */
+    background-image: url("img/Fon.jpg"); /* Путь к изображению */
+    background-size: cover; /* Растягивает изображение на весь фон */
+    background-repeat: no-repeat; /* Запрещает повторение изображения */
+    background-attachment: fixed; /* Фиксирует фон при прокрутке */
+}
+
+/* Заголовки */
+h1, h2 {
+    color: #000;
+}
+
+/* Черный неоновый эффект для текста (p) */
+p {
+    color: #000;
+    text-shadow:
+        0 0 3px #000,
+        0 0 5px #000;
+}
+
+/* Черный неоновый эффект для ссылок (a) */
+a {
+    color: #000;
+    text-shadow:
+        0 0 3px #000,
+        0 0 5px #000;
+    text-decoration: none; /* Убираем подчеркивание ссылок */
+}
+
+a:hover {
+    color: #333; /* Немного светлее при наведении */
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    color: #ff69b4; /* Ярко-розовый цвет */
+    text-shadow:
+        0 0 5px #ff69b4,  /* Маленькая розовая тень */
+        0 0 10px #ff69b4, /* Средняя розовая тень */
+        0 0 15px #ff69b4; /* Большая розовая тень */
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для главной страницы */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.tagline {
+    font-size: 1.5em;
+    color: #000;
+    text-shadow:
+        0 0 3px #000,
+        0 0 5px #000;
+    font-style: italic;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+}
+
+.content h2 {
+    color: #000;
+    text-shadow:
+        0 0 5px #000,
+        0 0 10px #000,
+        0 0 15px #000;
+    margin-bottom: 20px;
+}
+
+/* Стили для галереи */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery-item {
+    position: relative;
+    width: 300px;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer; /* Изменяем курсор при наведении, чтобы показать кликабельность */
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Стили для подписей под фото */
+.image-caption {
+    text-align: center;
+    padding: 5px;
+    font-size: 0.9em;
+    color: #000; /* Черный цвет для подписей */
+    text-shadow:
+        0 0 2px #000,
+        0 0 3px #000;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+
+    .gallery-item {
+        width: 45%; /* Два элемента в ряд на маленьких экранах */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav a {
+        margin: 0 5px;
+        font-size: 0.9em;
+    }
+
+    .gallery-item {
+        width: 90%; /* Один элемент в ряд на самых маленьких экранах */
+    }
+}
+
+/* Анимация сердец */
+.heart {
+    position: absolute;
+    font-size: 1em;
+    color: #e91e63;
+    animation: falling 3s linear infinite;
+}
+
+/* Пасхалка */
+.easter-egg {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 3em;
+    cursor: pointer;
+    z-index: 1000;
+    pointer-events: auto; /* Разрешаем клики */
+}
+
+/* Стили для видео (скрыто по умолчанию) */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    display: none; /* Скрыто по умолчанию */
+    z-index: 2000; /* Над всем остальным контентом */
+}
+
+.video-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* Белый фон контейнера */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#myVideo {
+    max-width: 80vw;  /* Максимальная ширина видео - 80% ширины окна */
+    max-height: 80vh; /* Максимальная высота видео - 80% высоты окна */
+    border-radius: 8px;
+}
+
+#closeVideo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.slideshow-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    cursor: default;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-images {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.modal-images img {
+    max-width: 23%; /* Подстраиваем ширину под 4 элемента */
+    max-height: 80%;
+    object-fit: contain;
+}
+
+/* Скрываем и задаем начальные параметры для нижнего ряда */
+.bottom-row img {
+    opacity: 0; /* Скрываем */
+    transform: scale(0.5); /* Уменьшаем размер */
+    transition: all 0.3s ease-in-out; /* Добавляем плавность */
+}
+
+/* Показываем нижние картинки с эффектом */
+.bottom-row.show-effect img {
+    opacity: 1; /* Показываем */
+    transform: scale(1); /* Возвращаем размер */
+}
+
+.hidden-easter-egg .easter-egg-content {
+    display: none; /* Скрываем содержимое по умолчанию */
+}
+
+.hidden-easter-egg .easter-egg-trigger {
+    font-size: 2em; /* Увеличиваем размер смайлика */
+    cursor: pointer; /* Меняем курсор при наведении */
+    margin-top: 20px; /* Отступ сверху */
+    display: block; /* Чтобы занимал всю ширину */
+    text-align: center; /* Центрируем */
+}
+
+.hidden-easter-egg .easter-egg-content.visible {
+    display: block; /* Показываем содержимое */
+    margin-top: 20px; /* Отступ сверху */
+    padding: 20px; /* Отступы внутри */
+    background-color: #f0f0f0; /* Светло-серый фон */
+    border: 1px solid #ccc; /* Рамка */
+    text-align: center; /* Центрируем текст */
+}
+
+.hidden-easter-egg .easter-egg-photo {
+    max-width: 200px; /* Максимальная ширина фото */
+    border-radius: 50%; /* Делаем фото круглым */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-100vh) translateX(0);
+    }
+    100% {
+        transform: translateY(100vh) translateX(0);
+    }
+}
+
+.kisses {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Чтобы не мешали кликам */
+    z-index: 1000; /* Поверх всего */
+    overflow: hidden; /* Скрываем выходящие за пределы элементы */
+}
+
+.kiss {
+    position: absolute;
+    font-size: 2em; /* Размер поцелуя */
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh); /* Стартовое положение сверху */
+        opacity: 0; /* Прозрачность 0 */
+    }
+    10% {
+        opacity: 1; /* Появляемся */
+    }
+    90% {
+        opacity: 1; /* Остаемся видимыми */
+    }
+    100% {
+        transform: translateY(110vh); /* Конечное положение снизу */
+        opacity: 0; /* Исчезаем */
+    }
+}

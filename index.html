@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Весёлые дни ❤</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Весёлые дни ❤</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="gallery.html">Галерея</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p class="tagline">Всё начиналось с малого и трудно, но мы прошли все трудности и теперь всё легко. ✨</p>
+        </section>
+
+        <section class="content">
+            <h2>Добро пожаловать! 👋</h2>
+            <p>Здесь собраны самые яркие моменты нашей жизни. 🥰📸</p>
+        </section>
+
+
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2022-2025 Весёлые дни ❤</p>
+    </footer>
+
+    <!-- Пасхалка -->
+    <div class="easter-egg" id="easterEgg">😊</div>
+
+    <!-- Видео (скрыто по умолчанию) -->
+    <div class="video-overlay" id="videoOverlay">
+        <div class="video-container">
+            <video id="myVideo" controls>
+                <source src="video/Love.mp4" type="video/mp4">
+                <!-- Добавь альтернативные форматы, если нужно: -->
+                <!-- <source src="video/Love.webm" type="video/webm"> -->
+                <!-- <source src="video/Love.ogg" type="video/ogg"> -->
+                Your browser does not support the video tag.
+            </video>
+            <button id="closeVideo">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        // Анимация сердец (пример)
+        document.addEventListener('DOMContentLoaded', function() {
+            const numHearts = 20;
+            const body = document.querySelector('body');
+
+            for (let i = 0; i < numHearts; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤'; // Символ сердца
+
+                const left = Math.random() * 100;
+                const size = Math.random() * 1 + 0.5; // Размер от 0.5em до 1.5em
+
+                heart.style.left = left + 'vw';
+                heart.style.fontSize = size + 'em';
+                heart.style.animationDelay = Math.random() * 2 + 's'; // Задержка анимации
+
+                body.appendChild(heart);
+            }
+            // Пасхалка
+    const easterEgg = document.querySelector('#easterEgg');
+    if (easterEgg) {
+        easterEgg.addEventListener('click', function() {
+            const videoOverlay = document.querySelector('#videoOverlay');
+            const myVideo = document.querySelector('#myVideo');
+
+            videoOverlay.style.display = 'block'; // Показать оверлей
+            myVideo.play(); // Начать воспроизведение видео
+        });
+    }
+
+    // Закрытие видео
+    const closeButton = document.getElementById('closeVideo');
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            const videoOverlay = document.querySelector('#videoOverlay');
+            const myVideo = document.querySelector('#myVideo');
+
+            videoOverlay.style.display = 'none'; // Скрыть оверлей
+            myVideo.pause(); // Остановить воспроизведение видео
+            myVideo.currentTime = 0; // Перемотать видео в начало
+        });
+    }
+        });
+    </script>
+</body>
+</html>

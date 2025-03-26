@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея - Весёлые дни ❤</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1>Весёлые дни ❤</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="gallery.html">Галерея</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery">
+            <div class="gallery-item" data-music="music/Summer.mp3">
+                <a href="img/Summer.jpg">
+                    <img src="img/Summer.jpg" alt="Первый день лета! ☀️">
+                </a>
+                <p class="image-caption">Первый день лета! ☀️</p>
+            </div>
+
+            <div class="gallery-item" data-music="music/Fire.mp3">
+                <a href="img/Fire.jpg">
+                    <img src="img/Fire.jpg" alt="Только жди меня, и я тебя обниму ❤">
+                </a>
+                <p class="image-caption">Только жди меня, и я тебя обниму ❤</p>
+            </div>
+
+            <div class="gallery-item" data-music="music/Fight.mp3">
+                <a href="img/Fight.jpg">
+                    <img src="img/Fight.jpg" alt="Судьба свела и теперь, мы вместе на веки с тобой! 🥰">
+                </a>
+                <p class="image-caption">Судьба свела и теперь, мы вместе на веки с тобой! 🥰</p>
+            </div>
+
+            <!-- Слайдшоу -->
+            <div class="gallery-item" data-music="music/Calm.mp3">
+                <a href="#" class="open-modal">
+                    <img src="img/Photo-1.jpg" alt="Судьба свела и теперь, мы вместе на веки с тобой! 🥰">
+                </a>
+                <p class="image-caption">Спокойствие и умиротворение 😌</p>
+            </div>
+            
+            <div id="myModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-images top-row">
+                        <img src="img/Photo-2.jpg" alt="Внутреннее фото 1" class="trigger-effect">
+                        <img src="img/Photo-3.jpg" alt="Внутреннее фото 2" class="trigger-effect">
+                        <img src="img/Photo-4.jpg" alt="Внутреннее фото 3" class="trigger-effect">
+                    </div>
+                    <div class="modal-images bottom-row">
+                        <img src="img/Photo-5.jpg" alt="Внутреннее фото 4">
+                        <img src="img/Photo-6.jpg" alt="Внутреннее фото 5">
+                        <img src="img/Photo-7.jpg" alt="Внутреннее фото 6">
+                        <img src="img/Photo-8.jpg" alt="Внутреннее фото 7">
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-easter-egg">
+                <span class="easter-egg-trigger" data-music="music/King and Love.mp3">🤫</span>  <!-- Смайлик "Лицо с секретом" -->
+                <div class="easter-egg-content">
+                    <img src="img/KingLove.jpg" alt="Фото Вадима" class="easter-egg-photo">
+                    <p>Привет! Я Вадим, создатель этого сайта. 🥰 Вечные друзья с первого класса, и я очень рад, что мы с тобой, Никита, до сих пор общаемся и поддерживаем связь. Было здорово помочь тебе с твоей идеей насчёт сайта! С уважением и любовью, твой друг Вадим. 😊❤️</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2022-2025 Весёлые дни ❤</p>
+    </footer>
+
+    <div class="kisses"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById("myModal");
+    const openModalBtn = document.querySelector(".open-modal");
+    const triggerImages = document.querySelectorAll(".trigger-effect");
+    const bottomRow = document.querySelector(".bottom-row");
+
+    if (modal && openModalBtn) {
+        openModalBtn.addEventListener("click", function(event) {
+            event.preventDefault();
+            modal.style.display = "flex";
+        });
+
+        modal.addEventListener("click", function() {
+            modal.style.display = "none";
+            bottomRow.classList.remove("show-effect"); // Сбрасываем эффект
+        });
+
+        triggerImages.forEach(img => {
+            img.addEventListener("click", function(event) {
+                event.stopPropagation(); // Предотвращаем закрытие модального окна
+                bottomRow.classList.add("show-effect"); // Запускаем эффект
+            });
+        });
+    } else {
+        console.warn("Не найден элемент с id 'myModal' или классом 'open-modal'.");
+    }
+});
+    </script>
+
+    <script src="script.js"></script>
+    <script src="js/lightbox.js"></script>
+</body>
+</html>
